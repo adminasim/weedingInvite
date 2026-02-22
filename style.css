@@ -1,0 +1,176 @@
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    padding: 20px 0;
+    background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Entry Box */
+.name-box {
+    width: 90%;
+    max-width: 360px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px 20px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    backdrop-filter: blur(10px);
+}
+
+.name-box input {
+    width: 80%;
+    padding: 12px;
+    margin: 15px 0;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    text-align: center;
+}
+
+.name-box button {
+    padding: 12px 30px;
+    border: none;
+    background: #bb377d;
+    color: white;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* Card Styling */
+.card-container {
+    perspective: 1000px;
+}
+
+.card {
+    width: 90vw;
+    max-width: 380px;
+    height: 650px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.front, .inside {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    overflow: hidden;
+}
+
+/* Front Side */
+.save-date {
+    background: #fff;
+    color: #b48b2d;
+    text-align: center;
+    padding: 20px;
+    border: 8px solid #f9f295;
+}
+
+.circle {
+    width: 180px;
+    height: 180px;
+    border: 2px solid #d6b96f;
+    border-radius: 50%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle, #ffffff, #fffdf5);
+}
+
+.circle-inner h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 40px;
+    margin: 0;
+    color: #8b0000;
+}
+
+.tap-hint { font-size: 12px; animation: bounce 2s infinite; color: #bb377d; }
+
+/* Inside Side */
+.inside {
+    background: url('download.png') no-repeat center center/cover;
+    transform: rotateY(180deg);
+}
+
+.overlay {
+    background: rgba(255, 255, 255, 0.85);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+}
+
+.couple-names {
+    font-family: 'Great Vibes', cursive;
+    font-size: 30px;
+    color: #8b0000;
+    margin: 10px 0;
+}
+
+.countdown {
+    background: #bb377d;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 13px;
+    margin: 10px 0;
+}
+
+/* Couple Image styling in CSS */
+.couple-img {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.couple-img img {
+    width: 160px; /* Apnar dorkar moto chotto boro korte paren */
+    height: auto;
+    
+    object-fit: cover;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #25d366; /* WhatsApp Green */
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.credits { text-align: center; color: #666; font-size: 12px; margin-top: 10px; }
+.credits a { color: #bb377d; text-decoration: none; }
+
+/* Animations */
+@keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-5px);} }
+
+.confetti {
+    position: fixed;
+    top: -10px;
+    border-radius: 50% 0 50% 50%;
+    z-index: 999;
+    animation: fall linear forwards;
+}
+
+@keyframes fall { to { transform: translateY(110vh) rotate(360deg); opacity: 0; } }
